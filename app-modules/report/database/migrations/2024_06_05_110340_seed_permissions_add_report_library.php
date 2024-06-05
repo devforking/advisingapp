@@ -34,18 +34,17 @@
 </COPYRIGHT>
 */
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     public function up(): void
     {
         $permission_group = DB::table('permission_groups')
             ->where('name', 'Report')->first();
 
-        if(!empty($permission_group)) {
+        if (! empty($permission_group)) {
             DB::table('permissions')->insert(
                 [
                     'id' => (string) Str::orderedUuid(),
