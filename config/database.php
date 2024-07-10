@@ -68,10 +68,9 @@ return [
 
     'connections' => [
         'landlord' => [
-            'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
+            'driver' => 'mysql',
+            'port' => env('DB_PORT', '3306'),
             'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
@@ -83,9 +82,9 @@ return [
         ],
 
         'tenant' => [
-            'driver' => 'pgsql',
-            'host' => env('TENANT_DB_HOST'),
-            'port' => env('TENANT_DB_PORT'),
+            'driver' => 'mysql',
+            'host' => env('TENANT_DB_HOST', '127.0.0.1'),
+            'port' => env('TENANT_DB_PORT', '3306'),
             'database' => env('TENANT_DB_DATABASE', ''),
             'username' => env('TENANT_DB_USERNAME'),
             'password' => env('TENANT_DB_PASSWORD'),
